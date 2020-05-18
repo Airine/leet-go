@@ -2,10 +2,10 @@ module.exports = {
   title: 'Project Name',
   tagline: 'Describe your project in one sentence.', // one sentence description
   url: 'https://blog.aaron-xin.tech/',
-  baseUrl: '/project-with-docs/',
+  baseUrl: '/leet-go/',
   favicon: 'img/favicon.ico',
   organizationName: 'Airine', // Usually your GitHub org/user name.
-  projectName: 'project-with-docs', // Usually your repo name.
+  projectName: 'leet-go', // Usually your repo name.
   themeConfig: {
     navbar: {
       title: 'Project Name',
@@ -23,7 +23,7 @@ module.exports = {
         {href: 'https://airine.github.io/blog', label: 'Blog', position: 'left'},
         {href: 'https://airine.github.io/', label: 'Home', position: 'right'},
         {
-          href: 'https://github.com/airine/project-with-docs',
+          href: 'https://github.com/airine/leet-go',
           label: 'GitHub',
           position: 'right',
         },
