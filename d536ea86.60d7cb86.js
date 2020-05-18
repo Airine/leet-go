@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[25],{157:function(o){o.exports=JSON.parse('{"allTagsPath":"/leet-go/blog/tags","slug":"facebook","name":"facebook","count":1,"permalink":"/leet-go/blog/tags/facebook"}')}}]);
