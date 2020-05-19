@@ -1,24 +1,10 @@
-# project-with-docs
+# leet-go
 
-## 文档
+这个仓库是用来记录学习golang的同时使用它刷LeetCode的过程。并在https://blog.aaron-xin.tech/leet-go/中记录必要的题解分析和知识点。
 
-_请熟悉[docusaurus]后再进行文档的修改和部署_
+LeetCode题目按类型分为：
 
-1. 已部署的文档位于`gh-pages`分支
-    请不要修改`gh-pages`分支的任何内容，因为都是由`yarn deploy`命令生成的。
+1. [LeetCode Daily](src/leet-daily)
+2. [Sliding Window](src/sliding-window)
+3. ...
 
-2. 先在本地`yarn start`确定无异常情况后`deploy`
-
-### 文档修改部署
-
-```bash
-cd docs
-```
-
-打开`docusaurus.config.js`
-
-1. 用搜索将 `Project Name` 换成项目名称。
-
-2. 用搜索将 `project-with-docs` 换成repo名称。
-
-### GitHub Actions
