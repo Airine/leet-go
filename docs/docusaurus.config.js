@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'Project Name',
-  tagline: 'Describe your project in one sentence.', // one sentence description
+  title: 'Leet Go',
+  tagline: '用Golang刷LeetCode!', // one sentence description
   url: 'https://blog.aaron-xin.tech/',
   baseUrl: '/leet-go/',
   favicon: 'img/favicon.ico',
@@ -8,7 +8,7 @@ module.exports = {
   projectName: 'leet-go', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'Project Name',
+      title: 'Leet Go',
       logo: {
         alt: 'SUSTech CANStudio Logo',
         src: 'img/logo.svg',
@@ -17,7 +17,7 @@ module.exports = {
         {
           to: 'docs/doc1',
           activeBasePath: 'docs',
-          label: 'Docs',
+          label: 'Solutions',
           position: 'left',
         },
         {href: 'https://airine.github.io/blog', label: 'Blog', position: 'left'},
@@ -33,42 +33,34 @@ module.exports = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Solutions',
           items: [
             {
-              label: 'Style Guide',
+              label: 'TODO List',
               to: 'docs/doc1',
-            },
-            {
-              label: 'Second Doc',
-              to: 'docs/doc2',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Slack channel',
-              href: 'https://canstudio-r.slack.com',
-            },
+            }
           ],
         },
         {
           title: 'Social',
           items: [
             {
-              label: 'Blog',
-              to: 'blog',
-            },
-            {
               label: 'GitHub',
               href: 'https://github.com/airine',
             }
           ],
         },
+        {
+          title: 'Links',
+          items: [
+            {
+              label: 'Samuel',
+              href: 'https://hustergs.github.io'
+            }
+          ]
+        }
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Project Name @ CAN Studio`,
+      copyright: `Copyright © ${new Date().getFullYear()} LeetGo @ 一口闰心`,
     },
   },
   presets: [
@@ -78,7 +70,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/airine/project-with-docs/edit/master/docs/',
+            'https://github.com/airine/leet-go/edit/master/docs/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
