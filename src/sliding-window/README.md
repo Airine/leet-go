@@ -13,12 +13,9 @@
 
 ## 题目
 
-| No.  | Name                                                  | Hardness | Status             |
-| ---- | ----------------------------------------------------- | -------- | ------------------ |
-|      | Maximum Sum Subarray of Size K                        | easy     | :heavy_check_mark: |
-|      | Smallest Subarray with a given sum                    | easy     |                    |
-|      | Longest Substring with K Distinct Characters          | medium   |                    |
-|      | Fruits into Baskets                                   | medium   |                    |
-|      | No-repeat Substring                                   | hard     |                    |
-|      | Longest Substring with Same Letters after Replacement | hard     |                    |
-|      | Longest Subarray with Ones after Replacement          | hard     |                    |
+| No.                        | Name                                                         | Diff.     | Status |
+| -------------------------- | ------------------------------------------------------------ | --------- | ------ |
+| [76](src/leet-daily/76.go) | [Minimum Window Substring](https://leetcode-cn.com/problems/minimum-window-substring/) | Difficult |        |
+| 438                        |                                                              |           |        |
+| 3                          |                                                              |           |        |
+| 567                        |                                                              |           |        |
