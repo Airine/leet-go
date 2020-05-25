@@ -8,5 +8,6 @@
 | 105  | [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | Medium    | 96.51%  | 100%   |                                                              |
 | 76   | [Minimum Window Substring](https://leetcode-cn.com/problems/minimum-window-substring/) | Difficult | 100%    | 100%   |                                                              |
 | 4    | [寻找两个正序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/) | Difficult | 99.45%  | 90.91% | [官方](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/xun-zhao-liang-ge-you-xu-shu-zu-de-zhong-wei-s-114/) |
+| 146  | [LRU缓存机制](https://leetcode-cn.com/problems/lru-cache/)   | Medium    |         |        |                                                              |
 
 ![image-20200519133021080](https://img-upic.oss-accelerate.aliyuncs.com/uPic/2020/05/q6qYAx.png)
