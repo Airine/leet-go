@@ -4,12 +4,6 @@ import (
     "fmt"
 )
 
-//
-type ListNode struct {
-    Val int
-    Next *ListNode
-}
-
 func reorderList(head *ListNode)  {
     if head == nil || head.Next == nil {
         return
@@ -41,31 +35,6 @@ func merge(head *ListNode, tail *ListNode)  {
         h = hn
         t = tn
     }
-}
-
-func reverse(head *ListNode) *ListNode  {
-    if head == nil || head.Next == nil {
-        return head
-    }
-    first, second := head, head.Next
-    head.Next = nil
-    for second != nil {
-        s := second.Next
-        second.Next = first
-        first = second
-        second = s
-    }
-    return first
-}
-
-func printListNode(head *ListNode)  {
-    fmt.Print(head.Val)
-    target := head.Next
-    for target != nil {
-        fmt.Printf("-> %d", target.Val)
-        target = target.Next
-    }
-    fmt.Println()
 }
 
 func main() {
