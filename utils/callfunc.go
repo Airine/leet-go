@@ -1,27 +1,11 @@
 package utils
 
 import (
-    "errors"
     "log"
     "reflect"
     "strconv"
+    "github.com/Airine/leet-go/utils/structures"
 )
-
-func GetNumIn(function interface{}) (int, error) {
-    value := reflect.ValueOf(function)
-    if value.Kind() != reflect.Func {
-        return -1, errors.New("not a function")
-    }
-    return value.Type().NumIn(), nil
-}
-
-func GetNumOut(function interface{}) (int, error) {
-    value := reflect.ValueOf(function)
-    if value.Kind() != reflect.Func {
-        return -1, errors.New("not a function")
-    }
-    return value.Type().NumOut(), nil
-}
 
 func Call(function interface{}, args ...string) (output []string) {
     value := reflect.ValueOf(function)
@@ -57,15 +41,18 @@ func Call(function interface{}, args ...string) (output []string) {
     argValues := make([]reflect.Value, 0, len(parameters))
     for i := 0; i < len(args); i++ {
         switch parameters[i] {
-        case reflect.TypeOf(int(0)):
+        case reflect.TypeOf(0):
             v, err := strconv.ParseInt(args[i], 10, 64)
             if err != nil {
                 log.Printf("argument %d %s convert int failed, %v \n", i, args[i], err)
                 return
             }
             argValues = append(argValues, reflect.ValueOf(int(v)))
-        case reflect.TypeOf(string("")):
+        case reflect.TypeOf(""):
             argValues = append(argValues, reflect.ValueOf(args[i]))
+        case reflect.TypeOf([]int{}):
+            arr := structures.ParseIntArr(args[i])
+            argValues = append(argValues, reflect.ValueOf(arr))
         default:
             log.Printf("unsupport type %s[%s] \n", parameters[i].Kind(), parameters[i].Name())
             return
@@ -73,18 +60,18 @@ func Call(function interface{}, args ...string) (output []string) {
     }
 
     resultValues := value.Call(argValues)
-    
+
     for i := 0; i < len(resultValues); i++ {
         switch resultValues[i].Type() {
-            case reflect.TypeOf(int(0)):
-                //log.Println("result: ", i, ", ", resultValues[i].Interface().(int))
-                output = append(output, strconv.Itoa(resultValues[i].Interface().(int)))
-            case reflect.TypeOf(string("")):
-                //log.Println("result: ", i, ", ", resultValues[i].Interface().(string))
-                output = append(output, resultValues[i].Interface().(string))
-            default:
-                log.Printf("type: %s[%s], value: %v \n", resultValues[i].Type().Kind(), resultValues[i].Type().Name(), resultValues[i].Interface())
-            }
+        case reflect.TypeOf(int(0)):
+            //log.Println("result: ", i, ", ", resultValues[i].Interface().(int))
+            output = append(output, strconv.Itoa(resultValues[i].Interface().(int)))
+        case reflect.TypeOf(string("")):
+            //log.Println("result: ", i, ", ", resultValues[i].Interface().(string))
+            output = append(output, resultValues[i].Interface().(string))
+        default:
+            log.Printf("type: %s[%s], value: %v \n", resultValues[i].Type().Kind(), resultValues[i].Type().Name(), resultValues[i].Interface())
+        }
     }
     return
 }
