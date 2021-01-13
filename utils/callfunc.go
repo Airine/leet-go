@@ -1,10 +1,10 @@
 package utils
 
 import (
+    "github.com/Airine/leet-go/utils/structures"
     "log"
     "reflect"
     "strconv"
-    "github.com/Airine/leet-go/utils/structures"
 )
 
 func Call(function interface{}, args ...string) (output []string) {
@@ -53,6 +53,9 @@ func Call(function interface{}, args ...string) (output []string) {
         case reflect.TypeOf([]int{}):
             arr := structures.ParseIntArr(args[i])
             argValues = append(argValues, reflect.ValueOf(arr))
+        case reflect.TypeOf([][]int{}):
+            arr := structures.Parse2dIntArr(args[i])
+            argValues = append(argValues, reflect.ValueOf(arr))
         default:
             log.Printf("unsupport type %s[%s] \n", parameters[i].Kind(), parameters[i].Name())
             return
@@ -63,14 +66,17 @@ func Call(function interface{}, args ...string) (output []string) {
 
     for i := 0; i < len(resultValues); i++ {
         switch resultValues[i].Type() {
-        case reflect.TypeOf(int(0)):
+        case reflect.TypeOf(0):
             //log.Println("result: ", i, ", ", resultValues[i].Interface().(int))
             output = append(output, strconv.Itoa(resultValues[i].Interface().(int)))
-        case reflect.TypeOf(string("")):
+        case reflect.TypeOf(""):
             //log.Println("result: ", i, ", ", resultValues[i].Interface().(string))
             output = append(output, resultValues[i].Interface().(string))
+        case reflect.TypeOf([]int{}):
+            output = append(output, structures.IntArrToString(resultValues[i].Interface().([]int)))
         default:
             log.Printf("type: %s[%s], value: %v \n", resultValues[i].Type().Kind(), resultValues[i].Type().Name(), resultValues[i].Interface())
+            output = append(output, resultValues[i].Interface().(string))
         }
     }
     return

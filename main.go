@@ -11,14 +11,13 @@ import (
 )
 
 // Start of the solution
-
 // End of the solution
 
 
 func main() {
     var function interface{}
     // Replace with your function name
-    function = f1
+    // function = f1
     // outputs := utils.Call(function, "", "1")
     fv := reflect.ValueOf(function).Type()
     numIn, numOut := fv.NumIn(), fv.NumOut()
@@ -27,7 +26,7 @@ func main() {
     expects := readOutput(numOut)
 
     if len(inputs) != len(expects) {
-
+        return
     }
 
     for i := 0; i < len(inputs); i ++ {
@@ -53,10 +52,6 @@ func equal(a, b []string) bool {
         }
     }
     return true
-}
-
-func f1(arg1 string, arg2 int) (string, int) {
-    return arg1, arg2
 }
 
 func readInput(numIn int) (res [][]string) {
