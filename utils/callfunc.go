@@ -50,7 +50,7 @@ func Call(function interface{}, args ...string) (output []string) {
 			}
 			argValues = append(argValues, reflect.ValueOf(int(v)))
 		case reflect.TypeOf(""):
-			argValues = append(argValues, reflect.ValueOf(args[i]))
+			argValues = append(argValues, reflect.ValueOf(args[i][1:len(args[i])-1]))
 		case reflect.TypeOf([]int{}):
 			arr := structures.ParseIntArr(args[i])
 			argValues = append(argValues, reflect.ValueOf(arr))
@@ -72,7 +72,7 @@ func Call(function interface{}, args ...string) (output []string) {
 			output = append(output, strconv.Itoa(resultValues[i].Interface().(int)))
 		case reflect.TypeOf(""):
 			//log.Println("result: ", i, ", ", resultValues[i].Interface().(string))
-			output = append(output, resultValues[i].Interface().(string))
+			output = append(output, "\"" + resultValues[i].Interface().(string) + "\"")
 		case reflect.TypeOf([]int{}):
 			output = append(output, structures.IntArrToString(resultValues[i].Interface().([]int)))
 		default:

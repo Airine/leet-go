@@ -10,6 +10,7 @@ import (
 
 	"github.com/airine/leet-go/utils"
 )
+
 // Start of the solution
 // End of the solution
 
@@ -17,6 +18,7 @@ func main() {
 	var function interface{}
 	// Replace with your function name
 	// function = f1
+
 	// outputs := utils.Call(function, "", "1")
 	fv := reflect.ValueOf(function).Type()
 	numIn, numOut := fv.NumIn(), fv.NumOut()
