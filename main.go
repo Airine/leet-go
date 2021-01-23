@@ -9,16 +9,27 @@ import (
 	"strings"
 
 	"github.com/airine/leet-go/utils"
+	"github.com/airine/leet-go/utils/structures"
 )
 
 // Start of the solution
+func makeConnected(n int, connections [][]int) int {
+	if len(connections) < n - 1 {
+		return -1
+	}
+	ufs := structures.NewUFSet(n)
+	for _, connection := range connections {
+		ufs.Union(connection[0], connection[1])
+	}
+	return n - ufs.Count - 1
+}
 // End of the solution
 
 func main() {
 	var function interface{}
 	// Replace with your function name
 	// function = f1
-
+	function = makeConnected
 	// outputs := utils.Call(function, "", "1")
 	fv := reflect.ValueOf(function).Type()
 	numIn, numOut := fv.NumIn(), fv.NumOut()
