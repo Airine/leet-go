@@ -18,7 +18,6 @@ func Call(function interface{}, args ...string) (output []string) {
 	parameters := make([]reflect.Type, 0, value.Type().NumIn())
 	for i := 0; i < value.Type().NumIn(); i++ {
 		arg := value.Type().In(i)
-		//log.Printf("argument %d is %s[%s] type \n", i, arg.Kind(), arg.Name())
 		parameters = append(parameters, arg)
 	}
 
@@ -30,7 +29,6 @@ func Call(function interface{}, args ...string) (output []string) {
 	outs := make([]reflect.Type, 0, value.Type().NumOut())
 	for i := 0; i < value.Type().NumOut(); i++ {
 		arg := value.Type().Out(i)
-		//log.Printf("out %d is %s[%s] type \n", i, arg.Kind(), arg.Name())
 		outs = append(outs, arg)
 	}
 

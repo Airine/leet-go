@@ -14,14 +14,15 @@ import (
 // Start of the solution
 func twoSum(nums []int, target int) []int {
 	for i := 0; i < len(nums); i++ {
-		for j := i+1; j < len(nums); j++ {
-			if nums[i] + nums[j] == target {
-				return []int{i,j}
+		for j := i + 1; j < len(nums); j++ {
+			if nums[i]+nums[j] == target {
+				return []int{i, j}
 			}
 		}
 	}
-	return []int{-1,-1}
+	return []int{-1, -1}
 }
+
 // End of the solution
 
 func main() {
@@ -45,9 +46,11 @@ func main() {
 		output := utils.Call(function, input...)
 		if equal(expect, output) {
 			fmt.Println("Pass test case", i)
+		} else if len(expect) == 0 {
+			fmt.Printf("Input: \t%s\nGot: \t%s\n", input, output)
 		} else {
 			fmt.Println("Fail test case", i)
-			fmt.Printf("Expected:\t%s\nGot:\t\t%s", expect, output)
+			fmt.Printf("Expected:\t%s\nGot:\t\t%s\n", expect, output)
 		}
 	}
 }
@@ -64,35 +67,19 @@ func equal(a, b []string) bool {
 	return true
 }
 
-func readInput(numIn int) (res [][]string) {
-	file, err := os.Open("input.txt")
-
-	if err != nil {
-		log.Fatal("failed to open input.txt")
-	}
-
-	scanner := bufio.NewScanner(file)
-	scanner.Split(bufio.ScanLines)
-
-	var inputs []string
-	cnt := 0
-	for scanner.Scan() {
-		inputs = append(inputs, scanner.Text())
-		cnt++
-		if cnt == numIn {
-			cnt = 0
-			res = append(res, inputs)
-			inputs = []string{}
-		}
-	}
-	return
+func readInput(numIn int) [][]string {
+	return readFileByNum(numIn, "input.txt")
 }
 
-func readOutput(numIn int) (res [][]string) {
-	file, err := os.Open("output.txt")
+func readOutput(numOut int) [][]string {
+	return readFileByNum(numOut, "output.txt")
+}
+
+func readFileByNum(num int, fileName string) (res [][]string) {
+	file, err := os.Open(fileName)
 
 	if err != nil {
-		log.Fatal("failed to open output.txt")
+		log.Fatal("failed to open " + fileName)
 	}
 
 	scanner := bufio.NewScanner(file)
@@ -103,7 +90,7 @@ func readOutput(numIn int) (res [][]string) {
 	for scanner.Scan() {
 		outputs = append(outputs, scanner.Text())
 		cnt++
-		if cnt == numIn {
+		if cnt == num {
 			cnt = 0
 			res = append(res, outputs)
 			outputs = []string{}
