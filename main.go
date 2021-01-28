@@ -9,19 +9,18 @@ import (
 	"strings"
 
 	"github.com/airine/leet-go/utils"
-	"github.com/airine/leet-go/utils/structures"
 )
 
 // Start of the solution
-func makeConnected(n int, connections [][]int) int {
-	if len(connections) < n - 1 {
-		return -1
+func twoSum(nums []int, target int) []int {
+	for i := 0; i < len(nums); i++ {
+		for j := i+1; j < len(nums); j++ {
+			if nums[i] + nums[j] == target {
+				return []int{i,j}
+			}
+		}
 	}
-	ufs := structures.NewUFSet(n)
-	for _, connection := range connections {
-		ufs.Union(connection[0], connection[1])
-	}
-	return n - ufs.Count - 1
+	return []int{-1,-1}
 }
 // End of the solution
 
@@ -29,16 +28,15 @@ func main() {
 	var function interface{}
 	// Replace with your function name
 	// function = f1
-	function = makeConnected
-	// outputs := utils.Call(function, "", "1")
+	function = twoSum
 	fv := reflect.ValueOf(function).Type()
 	numIn, numOut := fv.NumIn(), fv.NumOut()
 
 	inputs := readInput(numIn)
 	expects := readOutput(numOut)
 
-	if len(inputs) != len(expects) {
-		return
+	for len(inputs) > len(expects) {
+		expects = append(expects, []string{})
 	}
 
 	for i := 0; i < len(inputs); i++ {
