@@ -68,11 +68,15 @@ func Call(function interface{}, args ...string) (output []string) {
 		case reflect.TypeOf(0):
 			//log.Println("result: ", i, ", ", resultValues[i].Interface().(int))
 			output = append(output, strconv.Itoa(resultValues[i].Interface().(int)))
+		case reflect.TypeOf(true):
+			output = append(output, strconv.FormatBool(resultValues[i].Interface().(bool)))
 		case reflect.TypeOf(""):
 			//log.Println("result: ", i, ", ", resultValues[i].Interface().(string))
 			output = append(output, "\"" + resultValues[i].Interface().(string) + "\"")
 		case reflect.TypeOf([]int{}):
 			output = append(output, structures.IntArrToString(resultValues[i].Interface().([]int)))
+		case reflect.TypeOf([]bool{}):
+			output = append(output, structures.BoolArrToString(resultValues[i].Interface().([]bool)))
 		default:
 			log.Printf("type: %s[%s], value: %v \n", resultValues[i].Type().Kind(), resultValues[i].Type().Name(), resultValues[i].Interface())
 			output = append(output, resultValues[i].Interface().(string))

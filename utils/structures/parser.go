@@ -58,3 +58,12 @@ func IntArrToString(arr []int) string {
 	}
 	return "[" + strings.Join(rawArr, ",") + "]"
 }
+
+func BoolArrToString(arr []bool) string {
+	n := len(arr)
+	rawArr := make([]string, n)
+	for i, v := range arr {
+		rawArr[i] = strconv.FormatBool(v)
+	}
+	return "[" + strings.Join(rawArr, ",") + "]"
+}

@@ -12,16 +12,6 @@ import (
 )
 
 // Start of the solution
-func twoSum(nums []int, target int) []int {
-	for i := 0; i < len(nums); i++ {
-		for j := i + 1; j < len(nums); j++ {
-			if nums[i]+nums[j] == target {
-				return []int{i, j}
-			}
-		}
-	}
-	return []int{-1, -1}
-}
 
 // End of the solution
 
@@ -29,20 +19,26 @@ func main() {
 	var function interface{}
 	// Replace with your function name
 	// function = f1
-	function = twoSum
+
+	// Step 1: use reflect to get the # of input parameters and # of return (output) value
 	fv := reflect.ValueOf(function).Type()
 	numIn, numOut := fv.NumIn(), fv.NumOut()
 
+	// Step 2: read input from input.txt according to the # of input parameters
 	inputs := readInput(numIn)
+	// Step 3: read output from output.txt according to the # of output parameters
 	expects := readOutput(numOut)
 
 	for len(inputs) > len(expects) {
+		// Step 4: we allow not specifing the output
 		expects = append(expects, []string{})
 	}
 
+	// Iterate all the inputs
 	for i := 0; i < len(inputs); i++ {
 		input := inputs[i]
 		expect := expects[i]
+		// Step 5: call the solution function with given input args
 		output := utils.Call(function, input...)
 		if equal(expect, output) {
 			fmt.Println("Pass test case", i)
